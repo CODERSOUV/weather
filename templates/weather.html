@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <div class="sub-container">
+            <div class="backgroud">
+                <img src="/static/images/icon.png" alt="" srcset="" class="bg-image">
+            </div>
+            <div class="app">
+                <h1>Weather App</h1>
+            </div>
+        </div>
+        <form action="/weather" method="post">
+            <label for="country">Placename</label>
+            <input type="text" isd="country" name="place" placeholder="Search for places..." required>
+            <div class="button"><button type="submit"><img src="https://cdn-icons-png.flaticon.com/512/751/751463.png">
+            <p>Get Weather</p>
+            </button></div>
+        </form>
+    </div>
+    {% if weather %}
+    <div class="container weather-container">
+        <div class="upper-section">
+            <div class="image">
+                <img src="{{icon[weather.current.icon_num]}}" alt="Weather icon">
+            </div>
+            <div class="temperature">
+                <p>{{ weather.current.temperature }}°C</p>
+            </div>
+            <p><strong>maximum temperature:</strong> {{ prediction["daily"]["data"][0]['temperature_max'] }}°C</p>
+            <p><strong>mninimum temperature:</strong> {{ prediction["daily"]["data"][0]['temperature_min'] }}°C</p>
+        </div>
+            <div class="weather-details">
+                <img src={{pic_urls}} alt="" srcset="">
+                <p><strong>Summary:</strong> {{ weather.current.summary }}</p>
+                <p><strong>Feels Like:</strong> {{ weather.current.feels_like }}°C</p>
+                {% if weather.current.wind %}
+                <p><strong>Wind Speed:</strong> {{ weather.current.wind.speed }} m/s</p>
+                {% else %}
+                <p><strong>Wind Speed:</strong> N/A</p>
+                {% endif %}
+                <p><strong>Humidity:</strong> {{ weather.current.humidity }}%</p>
+            </div>
+        </div>
+    </div>
+{% endif %}
+<div class="daily">
+    {% if prediction %}
+    <div>
+       <h2>Next 20 days prediction</h2> 
+    </div>
+    {% for i in range(1,21) %}
+    <div class="prediction">
+        <p>day-{{i}}</p>
+        <p><strong>maximum temperature:</strong> {{ prediction["daily"]["data"][i]['temperature_max'] }}°C</p>
+        <p><strong>mninimum temperature:</strong> {{ prediction["daily"]["data"][i]['temperature_min'] }}°C</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+</body>
+</html>

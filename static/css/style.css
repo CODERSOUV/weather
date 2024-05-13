@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/cool.jpeg');
+    background-size: cover;  
+    background-repeat:repeat; 
+}
+.sub-container .bg-image {
+    height:100px;
+    width: 100px;
+}
+.sub-container{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+.sub-container .app{
+    padding: 10px;
+}
+.container {
+    padding: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 100px rgb(143, 94, 235);
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #696e9a;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    
+}
+.button{
+    display: flex;
+    justify-content: center;
+
+}
+img{
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+}
+
+
+button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    padding: 10px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #357ae8;
+}
+
+button[type="submit"]:focus {
+    outline: none;
+}
+
+.weather-container {
+    border-radius: 10px;
+    box-shadow: 0.5 0.5 100px rgb(143, 94, 235);
+    background-color: brown;
+    margin-bottom: 30px;
+}
+
+.upper-section .image img{
+    height: 150px;
+    width: 150px;
+}
+.upper-section{
+    display: flex;
+}
+
+.upper-section .temperature{
+    font-size: xx-large;
+    color:black;
+    margin-top: 35px;
+}
+
+.weather-details{
+    display: flex;
+    justify-content: space-between;
+}
+.weather-details p{
+    padding-right: 40px;
+}
+.daily{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
